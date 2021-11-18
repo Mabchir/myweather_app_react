@@ -1,0 +1,13 @@
+.Weather {
+  display: block;
+  font-family: sans-serif;
+
+  background: hsl(231, 48%, 48%);
+  width: 600px;
+  height: 600px;
+
+  border-radius: 25px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

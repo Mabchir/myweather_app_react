@@ -1,0 +1,35 @@
+.Today h5 {
+  color: white;
+  font-weight: 100;
+}
+
+.Today .colum1,
+.Today .colum2 {
+  padding: 20px;
+}
+.Today hr {
+  border-top: 2px solid #ccc;
+  width: 100%;
+  display: block;
+  margin: auto;
+  border-width: 3px;
+}
+.Today h1 {
+  color: #808fe6;
+  font-size: 20px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.Today .colum2 h5 {
+  color: #808fe6;
+}
+
+.Today .subcol {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: baseline;
+  align-content: flex-start;
+}

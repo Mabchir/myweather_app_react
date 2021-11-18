@@ -1,0 +1,16 @@
+.Unit p {
+  color: white;
+}
+
+.Unit .Celcius {
+  color: #808fe6;
+}
+.Unit .Farenheit:hover,
+.Unit .Celcius:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.Unit {
+  height: 60px;
+}

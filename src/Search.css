@@ -1,0 +1,29 @@
+.Search label {
+  color: white;
+}
+.Search input {
+  margin: 15px;
+  border-radius: 25px;
+}
+
+.Search input:hover {
+  border-color: White;
+  cursor: pointer;
+}
+
+.Search button {
+  border-radius: 25px;
+  background-color: white;
+  color: #3f51b5;
+  border-color: #3f51b5;
+}
+
+.Search button:hover {
+  font-size: 15px;
+  transition: 50ms;
+  cursor: pointer;
+}
+
+.Search {
+  padding: 20px;
+}
