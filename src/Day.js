@@ -1,6 +1,6 @@
 import React from "react";
 import "./Day.css";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 export default function Day(props) {
   return (
     <div className="Day">

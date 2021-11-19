@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Icon from "./Icon.js";
 import Temp from "./Temp.js";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import DateV2 from "./DateV2.js";
 import Time from "./Time.js";
 import Description from "./Description.js";
@@ -15,7 +15,7 @@ import Wind from "./Wind.js";
 import Humidity from "./Humidity.js";
 
 const divStyle = {
-  display: "flex"
+  display: "flex",
 };
 
 export default function Today(props) {
@@ -29,7 +29,7 @@ export default function Today(props) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
   ];
 
   let [icon, setIcon] = useState();

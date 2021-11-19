@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Search.css";
 import Today from "./Today.js";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 export default function Search() {
   let [city, setCity] = useState("");
   let [cityname, setCityname] = useState("Tunis");
