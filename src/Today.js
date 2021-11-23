@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Today.css";
 import axios from "axios";
-import "./Unit.css";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -40,7 +39,7 @@ export default function Today(props) {
   let [hum, setHum] = useState("76%");
 
   function handleResponse(response) {
-    setIcon();
+    setIcon(response.data.weather[0].icon);
     setTemp(Math.round(response.data.main.temp));
     setDesc(response.data.weather[0].description);
     setWind(response.data.wind.speed);
@@ -49,18 +48,6 @@ export default function Today(props) {
   const apiKey = `88a78e66d2f90d07860c0aa03d94e774`;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityname}&appid=${apiKey}&units=imperial`;
   axios.get(url).then(handleResponse);
-
-  function handleTemp(unit) {
-    if (unit === 1) {
-      //convert to C
-
-      setTemp(temp);
-    } else {
-      //convert to F
-
-      setTemp(Math.round(((temp - 32) * 5) / 9));
-    }
-  }
 
   return (
     <div className="Today">
@@ -72,18 +59,6 @@ export default function Today(props) {
             <div style={divStyle}>
               <Icon icon={icon} />
               <Temp temp={temp} />
-              <div className="Unit">
-                <p>
-                  °
-                  <button onClick={() => handleTemp(1)}>
-                    <span className="Farenheit">F</span>
-                  </button>
-                  | °
-                  <button onClick={() => handleTemp(2)}>
-                    <span className="Celcius">C</span>
-                  </button>
-                </p>
-              </div>
             </div>
           </Col>
           <Col className="colum2">
