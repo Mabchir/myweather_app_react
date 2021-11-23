@@ -15,16 +15,20 @@ export default function Search() {
     <div className="Search">
       <label>Enter City Name</label>
       <br />
-
-      <input
-        onChange={handleInput}
-        type="search"
-        id="site-search"
-        name="q"
-        aria-label="Search through site content"
-      ></input>
-      <br />
-      <button onClick={passEntry}>Search</button>
+      <div className="d-flex justify-content-center">
+        <input
+          onChange={handleInput}
+          type="search"
+          id="site-search"
+          name="q"
+          aria-label="Search through site content"
+          autoFocus="on"
+        ></input>
+        <br />
+        <button className="search" onClick={passEntry}>
+          Search
+        </button>
+      </div>
       <Today cityname={cityname} />
     </div>
   );

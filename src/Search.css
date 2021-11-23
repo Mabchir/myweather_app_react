@@ -17,7 +17,11 @@
   color: #3f51b5;
   border-color: #3f51b5;
 }
-
+.Search .search {
+  height: 35px;
+  position: relative;
+  top: 12px;
+}
 .Search button:hover {
   font-size: 15px;
   transition: 50ms;
