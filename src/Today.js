@@ -12,6 +12,7 @@ import Time from "./Time.js";
 import Description from "./Description.js";
 import Wind from "./Wind.js";
 import Humidity from "./Humidity.js";
+import Forcast from "./Forcast.js";
 
 const divStyle = {
   display: "flex",
@@ -37,6 +38,7 @@ export default function Today(props) {
   let [desc, setDesc] = useState("Scattered Clouds");
   let [wind, setWind] = useState("3.36");
   let [hum, setHum] = useState("76%");
+  let [coord, setCoord] = useState();
 
   function handleResponse(response) {
     setIcon(response.data.weather[0].icon);
@@ -44,6 +46,8 @@ export default function Today(props) {
     setDesc(response.data.weather[0].description);
     setWind(response.data.wind.speed);
     setHum(response.data.main.humidity);
+    setCoord(response.data.coord);
+    console.log(coord);
   }
   const apiKey = `88a78e66d2f90d07860c0aa03d94e774`;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityname}&appid=${apiKey}&units=imperial`;
@@ -57,7 +61,7 @@ export default function Today(props) {
         <Row>
           <Col className="colum1">
             <div style={divStyle}>
-              <Icon icon={icon} />
+              <Icon icon={icon} size={100} />
               <Temp temp={temp} />
             </div>
           </Col>
@@ -80,6 +84,8 @@ export default function Today(props) {
           </Col>
         </Row>
       </Container>
+
+      <Forcast coordinates={coord} />
     </div>
   );
 }

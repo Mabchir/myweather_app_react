@@ -1,0 +1,19 @@
+.Forcast {
+  text-align: center;
+}
+
+.Forcast-day {
+  color: white;
+  margin-bottom: 10px;
+  opacity: 0.89;
+}
+
+.Forcast-temp {
+  color: white;
+  margin-top: 10px;
+}
+
+.Forcast-temp-min {
+  margin-left: 8px;
+  opacity: 0.6;
+}
