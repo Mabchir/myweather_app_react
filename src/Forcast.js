@@ -3,9 +3,9 @@ import Icon from "./Icon.js";
 import "./Forcast.css";
 // import axios from "axios";
 export default function Forcast(props) {
-  function handleResponse(response) {
-    console.log(response);
-  }
+  // function handleResponse(response) {
+  //   console.log(response);
+  // }
   // let lon = props.coord.lon;
   // let lat = props.coord.lat;
   // const apiKey = `88a78e66d2f90d07860c0aa03d94e774`;

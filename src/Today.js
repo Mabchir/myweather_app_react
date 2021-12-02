@@ -47,7 +47,6 @@ export default function Today(props) {
     setWind(response.data.wind.speed);
     setHum(response.data.main.humidity);
     setCoord(response.data.coord);
-    console.log(coord);
   }
   const apiKey = `88a78e66d2f90d07860c0aa03d94e774`;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityname}&appid=${apiKey}&units=imperial`;
