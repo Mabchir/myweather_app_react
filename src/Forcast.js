@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Icon from "./Icon.js";
 import "./Forcast.css";
-// import axios from "axios";
+import axios from "axios";
 export default function Forcast(props) {
-  // function handleResponse(response) {
-  //   console.log(response);
-  // }
-  // let lon = props.coord.lon;
-  // let lat = props.coord.lat;
-  // const apiKey = `88a78e66d2f90d07860c0aa03d94e774`;
-  // let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}&units=imperial`;
-  // axios.get(apiUrl).then(handleResponse);
+  function handleResponse(response) {
+    console.log(response);
+  }
+  let lon = props.lon;
+  let lat = props.lat;
+
+  useEffect(() => {
+    const apiKey = `88a78e66d2f90d07860c0aa03d94e774`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={part}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleResponse);
+  }, [lat, lon]);
+
   return (
     <div className="Forcast">
       <div className="row">

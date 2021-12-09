@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Today.css";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
@@ -32,25 +32,29 @@ export default function Today(props) {
     "Saturday",
   ];
 
-  let [icon, setIcon] = useState();
+  let [icon, setIcon] = useState("09n");
   let [temp, setTemp] = useState();
 
   let [desc, setDesc] = useState("Scattered Clouds");
   let [wind, setWind] = useState("3.36");
   let [hum, setHum] = useState("76%");
-  let [coord, setCoord] = useState();
+  let [lat, setLat] = useState(34);
+  let [lon, setLon] = useState(9);
 
-  function handleResponse(response) {
-    setIcon(response.data.weather[0].icon);
-    setTemp(Math.round(response.data.main.temp));
-    setDesc(response.data.weather[0].description);
-    setWind(response.data.wind.speed);
-    setHum(response.data.main.humidity);
-    setCoord(response.data.coord);
-  }
-  const apiKey = `88a78e66d2f90d07860c0aa03d94e774`;
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityname}&appid=${apiKey}&units=imperial`;
-  axios.get(url).then(handleResponse);
+  useEffect(() => {
+    function handleResponse(response) {
+      setIcon(response.data.weather[0].icon);
+      setTemp(Math.round(response.data.main.temp));
+      setDesc(response.data.weather[0].description);
+      setWind(response.data.wind.speed);
+      setHum(response.data.main.humidity);
+      setLon(response.data.coord.lon);
+      setLat(response.data.coord.lat);
+    }
+    const apiKey = `88a78e66d2f90d07860c0aa03d94e774`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityname}&appid=${apiKey}&units=imperial`;
+    axios.get(url).then(handleResponse);
+  }, [props.cityname]);
 
   return (
     <div className="Today">
@@ -84,7 +88,7 @@ export default function Today(props) {
         </Row>
       </Container>
 
-      <Forcast coordinates={coord} />
+      <Forcast lat={lat} lon={lon} />
     </div>
   );
 }
